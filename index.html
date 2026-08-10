@@ -1,26 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>castles</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Castles - Runescape Themed Website</title>
+  <style>
+
+    .image-gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 25px;
+  justify-content: flex-start;
+}
+
+.image-gallery img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border: 2px solid #5a3c1e;
+  border-radius: 4px;
+  background-color: #000;
+  box-sizing: border-box;
+}
+    @font-face {
+      font-family: 'RuneScapeFont'; 
+      src: url('font/runescape.ttf') format('truetype'); 
+      font-weight: normal;
+      font-style: normal;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: #000;
+      color: #fff;
+      font-family: 'RuneScapeFont', Arial, sans-serif;
+    }
+
+    .osrs-frame {
+      position: relative;
+      width: 1800px;
+      min-height: 100vh;
+      margin: 0 auto;
+      
+      background-image: url('background.jpg');
+      background-repeat: repeat-y;
+      background-position: center top;
+      background-size: 1800px auto; 
+      
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
+    }
+
+    .content-wrapper {
+      padding: 20px 110px 80px 110px;
+      box-sizing: border-box;
+    }
+
+    .header-bar {
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid #3c3224;
+      padding: 12px 24px;
+      text-align: right;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .header-bar a {
+      color: #00ff00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logo-area {
+      text-align: center;
+      margin: 0 0 30px 0;
+    }
+
+    .logo-area h1 {
+      color: #ff9800;
+      font-size: 56px;
+      margin: 0;
+      text-shadow: 3px 3px 6px #000;
+      letter-spacing: 4px;
+    }
+
+    .player-count {
+      color: #ffff20;
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .osrs-nav-box {
+      border: 2px solid #5a3c1e;
+      background-color: #000000;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      box-sizing: border-box;
+    }
+
+    .osrs-nav-box legend {
+      color: #ffaa00;
+      font-size: 28px;s
+      font-weight: bold;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .osrs-nav-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .osrs-nav-box li {
+      margin-bottom: 10px;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+    }
+
+    .osrs-nav-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    .osrs-nav-box .icon {
+      width: 24px;
+      display: inline-block;
+      text-align: center;
+      margin-right: 8px;
+      font-size: 24px;
+    }
+
+    .osrs-nav-box a {
+      color: #00ff00;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    .osrs-nav-box a:hover {
+      text-decoration: underline;
+      color: #ffff00;
+    }
+
+    .main-content {
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px solid #4d3e2b;
+      border-radius: 4px;
+      padding: 35px;
+      box-shadow: inset 0 0 15px #000;
+      font-size: 30px;
+      line-height: 1.5;
+    }
+
+    .main-content h2 {
+      color: #ff9800;
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
-    <header>
-  <h1>My Personal Site</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-  </nav>
-</header>
-    <section id="about">
-  <h2>About Me</h2>
-  <p>Write a short intro about yourself here.</p>
-</section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <p>Add your projects here.</p>
-</section>
+  <div class="osrs-frame">
+    <div class="content-wrapper">
+      
+      <!-- Top Bar -->
+      <div class="header-bar">
+        <a href="#">made by jay</a>
+      </div>
+
+      <!-- Logo Header -->
+      <div class="logo-area">
+        <h1>PROJECT CASTLES</h1>
+        <div class="player-count">
+    There are currently <span id="online-counter">104,318</span> people playing!
+        </div>
+      </div>
+
+      <!-- Main Layout Grid -->
+      <div class="page-layout">
+        
+        <!-- LEFT SIDEBAR -->
+        <aside class="left-sidebar">
+          
+          <fieldset class="osrs-nav-box">
+            <legend>About Me</legend>
+            <ul>
+                <p style="font-size: 24px;">Welcome to my Runescape themed Website my name is <strong>jay</strong> I am a 16 year old from the US with a passion of coding and messing with electronics. I have been coding on and off for about 5 years </p>
+            </ul>
+          </fieldset>
+
+          <fieldset class="osrs-nav-box">
+            <legend>Projects *</legend>
+            <ul>
+              <p>Here are some of my projects I have worked on over the past week, will update as i go</p>
+              <li><span class="icon">💻</span><a href="#">Project 1</a></li>
+                <p style="font-size: 24px;">Project 1 is a pillow shaker kind of thing that im still working on. Basically uses a motor under the pillow to shake it and wake you up</p>
+            </ul>
+          </fieldset>
+
+          <fieldset class="osrs-nav-box">
+            <legend>Contact me</legend>
+            <ul>
+              <li><span class="icon">📧</span><a href="mailto:jrougew@gmail.com">Email Me</a></li>
+              <p style="font-size: 24px;">you can also find me on the hack club slackas <strong>scary</strong></p>
+            </ul>
+          </fieldset>
+
+        </aside>
+
+        <main class="main-content">
+          <h2>Welcome</h2>
+          <p>down below i have included some screenshots of my old school runescape account if your interested</p>
+        </main>
+        <!-- Images placed outside and underneath the main box -->
+        <div class="image-gallery">
+          <img src="1715.jpg" alt="RuneScape Screenshot 1">
+          <img src="1758.jpg" alt="RuneScape Screenshot 2">
+          <img src="1756.jpg" alt="RuneScape Screenshot 3">   
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>
+<script>
+  let playerCount = 104318;
+
+  function updateCounter() {
+    const change = Math.floor(Math.random() * 11) - 5;
+    playerCount += change;
+
+    const formattedCount = playerCount.toLocaleString();
+
+    document.getElementById('online-counter').textContent = formattedCount;
+  }
+
+  setInterval(updateCounter, 3000);
+</script>
 </html>
