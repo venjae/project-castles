@@ -1,15 +1,14 @@
-# 🗡️ OSRS-Themed Personal Portfolio Website
+# 🗡️ OSRS-Themed Personal Website
 
-A retro, interactive personal portfolio website styled to replicate the iconic **Old School RuneScape (OSRS)** user interface and design aesthetics. Built with pure front-end web technologies, pure html, and structured Markdown content.
-
+a old school runescape themed personal website to show off future projects and progress on my osrs account xD
 ---
 
 ## ✨ Features
 
-* **Authentic OSRS Interface**: Recreates classic in-game UI components including brown stone textures, medieval tab navigation, chatbox interface(that doesnt fcking work), and stylized headers.
-* **Interactive Navigation**: One single page filled with an about me, current projects im working on, and how to contact me
-* **Responsive Layout**: Customized layout designed to preserve the nostalgic retro UI feel across ONE device cuz idk how to do allat
-* * **Pure Front-End Stack**: Lightweight, fast, and dependency-free core setup.
+* **authentic osrs elements** elements used from the osrs website and game (https://oldschool.runescape.com/)
+* **easy navigation**: one single page filled with an about me, current projects im working on, and how to contact me
+* **static layout**: customized layout designed to the early 2000's feel across ONE device cuz idk how to do allat
+* * **purely frontend (cuz backend wouldnt work)**: lightweight, fast, and dependency-free core setup (tried to setup a backend thing using supabase for a guest message system (couldnt figure out how to do it).
 
 ---
 
@@ -17,8 +16,7 @@ A retro, interactive personal portfolio website styled to replicate the iconic *
 
 * **HTML5**: Structural semantic markup customized for OSRS interface framing.
 * **CSS3**: Multi-layered CSS custom properties, pixel-art font embedding (`RuneScape-Chat font`), and retro borders.
-* **Markdown**: Content structured and rendered for easy updating and maintenance.
-
+* **Markdown**: easy way to see how things work
 ---
 
 ## 📂 Project Structure
