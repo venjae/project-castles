@@ -1,9 +1,9 @@
-# 🗡️ OSRS-Themed Personal Website
+#  OSRS-Themed personal website
 
 a old school runescape themed personal website to show off future projects and progress on my osrs account xD
 ---
 
-## ✨ Features
+## features
 
 * **authentic osrs elements** elements used from the osrs website and game (https://oldschool.runescape.com/)
 * **easy navigation**: one single page filled with an about me, current projects im working on, and how to contact me
@@ -12,14 +12,14 @@ a old school runescape themed personal website to show off future projects and p
 
 ---
 
-## 🛠️ Tech Stack & Technologies
+##  languages used
 
 * **HTML5**: Structural semantic markup customized for OSRS interface framing.
 * **CSS3**: Multi-layered CSS custom properties, pixel-art font embedding (`RuneScape-Chat font`), and retro borders.
 * **Markdown**: easy way to see how things work
 ---
 
-## 📂 Project Structure
+## project Structure
 
 ```text
 .
