@@ -5,101 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Castles - Runescape Themed Website</title>
   <style>
-
-    .main-column {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .image-gallery {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 0;
-    }
-
-    .guest-list-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .guest-list-form input,
-    .guest-list-form textarea,
-    .guest-list-form button {
-      font-family: inherit;
-      font-size: 20px;
-      padding: 8px 10px;
-      border: 1px solid #5a3c1e;
-      background-color: #1a1a1a;
-      color: #fff;
-      box-sizing: border-box;
-    }
-
-    .guest-list-form button {
-      cursor: pointer;
-      color: #00ff00;
-      font-weight: bold;
-    }
-
-    .guest-list-form button:hover {
-      background-color: #2b2b2b;
-    }
-
-    .guest-status {
-      margin-top: 10px;
-      font-size: 18px;
-      color: #00ff00;
-      min-height: 24px;
-    }
-
-    .guest-list-board {
-      margin-top: 12px;
-      padding: 10px;
-      border: 1px solid #3c3224;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .guest-list-board h3 {
-      margin: 0 0 8px 0;
-      color: #ffaa00;
-      font-size: 22px;
-    }
-
-    .guest-list-board ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .guest-list-board li {
-      font-size: 20px;
-      color: #f3f3f3;
-      line-height: 1.4;
-    }
-
-.image-gallery img {
-  width: 320px;
-  height: 220px;
-  object-fit: cover;
-  border: 2px solid #5a3c1e;
-  border-radius: 4px;
-  background-color: #000;
-  box-sizing: border-box;
-}
+    /* Keep original look but make layout adapt to screen sizes */
     @font-face {
-      font-family: 'RuneScapeFont'; 
-      src: url('font/runescape.ttf') format('truetype'); 
+      font-family: 'RuneScapeFont';
+      src: url('font/runescape.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
+      font-display: swap;
     }
+
+    * { box-sizing: border-box }
     html, body {
       margin: 0;
       padding: 0;
@@ -107,25 +22,34 @@
       background-color: #000;
       color: #fff;
       font-family: 'RuneScapeFont', Arial, sans-serif;
+      font-size: 16px;
     }
 
     .osrs-frame {
       position: relative;
-      width: 1800px;
+      width: 100%;
+      max-width: 1800px; /* keep original max visual width */
       min-height: 100vh;
       margin: 0 auto;
-      
       background-image: url('background.jpg');
       background-repeat: repeat-y;
       background-position: center top;
-      background-size: 1800px auto; 
-      
+      background-size: auto; /* preserve original tiling */
       box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
+      padding: 0 12px; /* small horizontal padding on narrow screens */
     }
 
     .content-wrapper {
       padding: 20px 110px 80px 110px;
       box-sizing: border-box;
+    }
+
+    /* make the content padding scale down on narrow screens */
+    @media (max-width: 1000px) {
+      .content-wrapper { padding-left: 36px; padding-right: 36px }
+    }
+    @media (max-width: 640px) {
+      .content-wrapper { padding-left: 18px; padding-right: 18px }
     }
 
     .header-bar {
@@ -137,103 +61,78 @@
       margin-bottom: 30px;
     }
 
-    .header-bar a {
-      color: #00ff00;
-      text-decoration: none;
-      font-weight: bold;
+    .header-bar a { color: #00ff00; text-decoration: none; font-weight: bold }
+
+    .logo-area { text-align: center; margin: 0 0 30px 0 }
+    .logo-area h1 { color: #ff9800; font-size: 56px; margin: 0; text-shadow: 3px 3px 6px #000; letter-spacing: 4px }
+    .player-count { color: #ffff20; font-size: 24px; margin-top: 10px }
+
+    .page-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; align-items: start }
+    /* collapse to single column on smaller screens */
+    @media (max-width: 900px) {
+      .page-layout { grid-template-columns: 1fr }
+      .left-sidebar { order: 2 }
+      .main-column { order: 1 }
     }
 
-    .logo-area {
-      text-align: center;
-      margin: 0 0 30px 0;
+    .osrs-nav-box { border: 2px solid #5a3c1e; background-color: #000000; margin-bottom: 20px; padding: 12px 16px; box-sizing: border-box }
+    .osrs-nav-box legend { color: #ffaa00; font-size: 28px; font-weight: bold; text-align: center; padding: 0 10px }
+    .osrs-nav-box ul { list-style: none; padding: 0; margin: 0 }
+    .osrs-nav-box li { margin-bottom: 10px; font-size: 26px; display: flex; align-items: center }
+    .osrs-nav-box li:last-child { margin-bottom: 0 }
+    .osrs-nav-box .icon { width: 24px; display: inline-block; text-align: center; margin-right: 8px; font-size: 24px }
+    .osrs-nav-box a { color: #00ff00; text-decoration: none; font-weight: normal }
+    .osrs-nav-box a:hover { text-decoration: underline; color: #ffff00 }
+
+    .main-column { display: flex; flex-direction: column; gap: 20px }
+
+    .image-gallery { display: flex; flex-direction: row; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 0 }
+    .image-gallery img { width: 320px; max-width: 100%; height: auto; object-fit: cover; border: 2px solid #5a3c1e; border-radius: 4px; background-color: #000 }
+
+    .guest-list-form { display: flex; flex-direction: column; gap: 10px }
+    .guest-list-form input, .guest-list-form textarea, .guest-list-form button { font-family: inherit; font-size: 20px; padding: 8px 10px; border: 1px solid #5a3c1e; background-color: #1a1a1a; color: #fff; box-sizing: border-box }
+    .guest-list-form button { cursor: pointer; color: #00ff00; font-weight: bold }
+    .guest-list-form button:hover { background-color: #2b2b2b }
+
+    .guest-status { margin-top: 10px; font-size: 18px; color: #00ff00; min-height: 24px }
+    .guest-list-board { margin-top: 12px; padding: 10px; border: 1px solid #3c3224; background: rgba(0, 0, 0, 0.6) }
+    .guest-list-board h3 { margin: 0 0 8px 0; color: #ffaa00; font-size: 22px }
+    .guest-list-board ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px }
+    .guest-list-board li { font-size: 20px; color: #f3f3f3; line-height: 1.4 }
+
+    .main-content { background: rgba(0, 0, 0, 0.85); border: 2px solid #4d3e2b; border-radius: 4px; padding: 35px; box-shadow: inset 0 0 15px #000; font-size: 30px; line-height: 1.5 }
+    .main-content h2 { color: #ff9800; margin-top: 0 }
+
+    /* small reductions for tiny screens to keep look consistent */
+    @media (max-width: 480px) {
+      .header-bar { font-size: 18px }
+      .logo-area h1 { font-size: 30px }
+      .main-content { padding: 18px; font-size: 18px }
+      .osrs-nav-box li { font-size: 18px }
+      .image-gallery img { width: 100%; max-width: 260px }
     }
 
-    .logo-area h1 {
-      color: #ff9800;
-      font-size: 56px;
-      margin: 0;
-      text-shadow: 3px 3px 6px #000;
-      letter-spacing: 4px;
+    /* Monitor: slightly increase spacing and image sizes on wide desktop */
+    @media (min-width: 1400px) and (max-width: 1999px) {
+      .content-wrapper { padding-left: 120px; padding-right: 120px }
+      .logo-area h1 { font-size: 68px }
+      .header-bar { font-size: 32px }
+      .main-content { font-size: 34px; padding: 42px }
+      .osrs-nav-box legend { font-size: 30px }
+      .osrs-nav-box li { font-size: 28px }
+      .image-gallery img { width: 420px }
     }
 
-    .player-count {
-      color: #ffff20;
-      font-size: 24px;
-      margin-top: 10px;
-    }
-
-    .page-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 30px;
-      align-items: start;
-    }
-
-    .osrs-nav-box {
-      border: 2px solid #5a3c1e;
-      background-color: #000000;
-      margin-bottom: 20px;
-      padding: 12px 16px;
-      box-sizing: border-box;
-    }
-
-    .osrs-nav-box legend {
-      color: #ffaa00;
-      font-size: 28px;s
-      font-weight: bold;
-      text-align: center;
-      padding: 0 10px;
-    }
-
-    .osrs-nav-box ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .osrs-nav-box li {
-      margin-bottom: 10px;
-      font-size: 26px;
-      display: flex;
-      align-items: center;
-    }
-
-    .osrs-nav-box li:last-child {
-      margin-bottom: 0;
-    }
-
-    .osrs-nav-box .icon {
-      width: 24px;
-      display: inline-block;
-      text-align: center;
-      margin-right: 8px;
-      font-size: 24px;
-    }
-
-    .osrs-nav-box a {
-      color: #00ff00;
-      text-decoration: none;
-      font-weight: normal;
-    }
-
-    .osrs-nav-box a:hover {
-      text-decoration: underline;
-      color: #ffff00;
-    }
-
-    .main-content {
-      background: rgba(0, 0, 0, 0.85);
-      border: 2px solid #4d3e2b;
-      border-radius: 4px;
-      padding: 35px;
-      box-shadow: inset 0 0 15px #000;
-      font-size: 30px;
-      line-height: 1.5;
-    }
-
-    .main-content h2 {
-      color: #ff9800;
-      margin-top: 0;
+    /* TV / very large screens: scale up to keep the same visual density */
+    @media (min-width: 2000px) {
+      .osrs-frame { max-width: none; background-size: cover }
+      .content-wrapper { padding-left: 160px; padding-right: 160px }
+      .logo-area h1 { font-size: 96px; letter-spacing: 6px }
+      .header-bar { font-size: 40px }
+      .main-content { font-size: 40px; padding: 60px }
+      .osrs-nav-box legend { font-size: 36px }
+      .osrs-nav-box li { font-size: 32px }
+      .image-gallery img { width: 520px }
     }
   </style>
 </head>
