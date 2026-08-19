@@ -56,6 +56,12 @@ body {
 
 
 .container {
+	display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    max-width: 1200px; /* Prevents site from stretching endlessly on massive screens */
+    margin: 0 auto;    /* Centers container on wide displays */
 	max-width: 55rem;
 	margin: 5vw auto 12px auto;
 	border: 6px ridge var(--border);
